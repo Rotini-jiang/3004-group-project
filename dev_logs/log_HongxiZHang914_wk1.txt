@@ -1,0 +1,2 @@
+First Week: I created the UML diagram version 1.0, there are still many classes that are not included in this version,
+but we will add them as we writing the codes. the coding part will be started next week.
