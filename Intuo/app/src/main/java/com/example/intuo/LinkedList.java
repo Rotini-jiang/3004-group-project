@@ -1,3 +1,4 @@
+package com.example.intuo;
 public class LinkedList {
     // 没有Node呢还
     private Node head;
