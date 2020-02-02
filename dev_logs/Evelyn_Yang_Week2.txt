@@ -1,0 +1,9 @@
+Name: Evelyn Yang
+Student ID: 101099545
+
+Week2:
+1. This week our team create the project under Android Studio.
+2. Create the Budget class:
+	Budget class represents the budget of a certain user, also keep track on when should give warning to users with priority.
+3. Create the Event class:
+	Event class represents the upcoming event an user might have with priority.
