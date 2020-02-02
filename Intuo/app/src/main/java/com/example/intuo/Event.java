@@ -15,6 +15,12 @@ public class Event {
     public boolean priorityCompare(int priority) {
         return this.priority >= priority;
     }
+	public int compareDate(Event e){
+		return (this.date.dateCompare(e.date));
+	}
+	public int getPriority(){
+        return this.priority;
+    }
 
     public void print(){
         System.out.println("Event is: Date: "+ date + "name: " + name + "priority: " + priority);

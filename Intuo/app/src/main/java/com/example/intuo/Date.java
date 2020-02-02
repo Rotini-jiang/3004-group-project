@@ -19,6 +19,15 @@ public class Date {
         }
         return false;
     }
+	public int dateCompare(Date d){
+		if(this.year<d.year && this.month<d.month&& this.day<d.day){
+		    return 1;
+        }
+		else if(this.year==d.year && this.month==d.month&& this.day==d.day){
+		    return 0;
+        }
+		else{return -1;}
+	}
     //check if the date is equal to the local date
     //@return true: if year, month and day all equal to local date
     public boolean isEqualToLocalDate(){
