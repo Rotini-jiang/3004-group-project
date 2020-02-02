@@ -7,7 +7,7 @@ public class EventList {
         this.head = null;
 
     }
-    /* //insert First Node
+    //insert First Node
     public void insertHeadNode(Event event) {
         EventNode node = new EventNode(event);
         node.next = head;
@@ -24,7 +24,6 @@ public class EventList {
         head = head.next;
         return event;
     }
- */
     // insert in anywhere
 	
 	
