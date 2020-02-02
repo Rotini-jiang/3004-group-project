@@ -15,10 +15,10 @@ public class Event {
     public boolean priorityCompare(int priority) {
         return this.priority >= priority;
     }
-	public int compareDate(Event e){
+    public int compareDate(Event e){
 		return (this.date.dateCompare(e.date));
-	}
-	public int getPriority(){
+    }
+    public int getPriority(){
         return this.priority;
     }
 
