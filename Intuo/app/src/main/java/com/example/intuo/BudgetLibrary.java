@@ -5,7 +5,7 @@ public class BudgetLibrary {
 
   private BudgetList listB
   
-  public void addEvent(Event e){
+  public void addBudget(Budget e){
     
   }
   public void print(){
