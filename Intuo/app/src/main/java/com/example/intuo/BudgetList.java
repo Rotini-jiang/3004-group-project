@@ -26,29 +26,34 @@ public class BudgetList {
     }
 
     // insert in anywhere
-    public void insert( Budget budget, int index){
+    public void insert(Budget budget){
+        BudgetNode temp;
+        BudgetNode current;
+        BudgetNode previous;
 
-        if (head == null) {
-            System.out.println("Empty List! ");
-            return;
-        }
-        if (index == 0) {
-            insertHeadNode(budget); //insert First Node
-            return;
-        }
+        temp = new BudgetNode(budget);
+        temp.next = null;
 
-        BudgetNode node = new BudgetNode(budget);
-        BudgetNode current = head;
+        current = head;
+        previous = null;
 
-        for (int j = 0; j < (index - 1) && current != null; j++) {
-            current = current.next;
-            if (current == null) {
-                System.out.println("No such node! ");
-                return;
+        while (current!= null){
+            if(budget.compareDate(current.budget)==0){
+                if (budget.getPriority()>current.budget.getPriority()) {
+                    break;
+                }
             }
-            node.next = current.next;
-            current.next = node;
+            previous = current;
+            current = current.next;
         }
+        if (previous==null){
+            head = temp;
+        }
+        else{
+            previous.next = temp;
+        }
+        temp.next = current;
+        
     }
     //delete in anywhere
     public Budget delete(int index) {
