@@ -1,5 +1,3 @@
-package com.example.intuo;
-
 public class Event {
     private Date date;
     private String name;
@@ -16,12 +14,17 @@ public class Event {
         return this.priority >= priority;
     }
     public int compareDate(Event e){
-		return (this.date.dateCompare(e.date));
+        return (this.date.dateCompare(e.date));
     }
     public int getPriority(){
         return this.priority;
     }
-
+    public String getName(){
+        return this.name;
+    }
+    public Date getDate(){
+        return this.date;
+    }
     public void print(){
         System.out.println("Event is: Date: "+ date + "name: " + name + "priority: " + priority);
     }

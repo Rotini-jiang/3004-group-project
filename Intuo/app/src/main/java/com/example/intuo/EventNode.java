@@ -1,13 +1,12 @@
-package com.example.intuo;
 public class EventNode {
 
-    public Event event;
+    public Event data;
     public EventNode next;
+    public EventNode previous;
 
     public EventNode(Event event) {
-        this.event = event;
+        this.data = event;
+        previous = null;
+        next = null;
     }
-    public EventNode(){};
-
-
 }

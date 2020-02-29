@@ -1,13 +1,12 @@
-package com.example.intuo;
 import java.time.LocalDateTime;
 public class Date {
-    private Time time;
-    private int day;
-    private int month;
-    private int year;
+    public int day;
+    public int month;
+    public int year;
+    public Time time;
     LocalDateTime local = LocalDateTime.now();              //current local date and time
-    public Date(Time t, int d, int m, int y){
-        this.time = t;
+    public Date(int d, int m, int y){
+
         this.day = d;
         this.month = m;
         this.year = y;
@@ -20,13 +19,19 @@ public class Date {
         return false;
     }
     public int dateCompare(Date d){
-	if(this.year<d.year && this.month<d.month&& this.day<d.day){
-	    return 1;
+        if(this.year<d.year){
+            return 1;
         }
-	else if(this.year==d.year && this.month==d.month&& this.day==d.day){
-	    return 0;
+        else if(this.year == d.year && this.month<d.month){
+            return 1;
         }
-	else{return -1;}
+        else if(this.year == d.year && this.month==d.month && this.day < d.day){
+            return 1;
+        }
+        else if(this.year==d.year && this.month==d.month&& this.day==d.day){
+            return 0;
+        }
+        else{return -1;}
     }
     //check if the date is equal to the local date
     //@return true: if year, month and day all equal to local date
@@ -47,6 +52,6 @@ public class Date {
     }
     //debugging used method
     public void print(){
-        System.out.println("current date is: "+year+"/"+month+"/"+day);
+        System.out.println(year+"/"+month+"/"+day);
     }
 }

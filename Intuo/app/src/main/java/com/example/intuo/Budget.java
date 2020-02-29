@@ -1,9 +1,9 @@
-package com.example.intuo;
+
 
 public class Budget {
     private String name;
-    private static int amount;
-    private int usage;
+    private float amount;
+    private float usage;
     private Date startDate;
     private Date endDate;
     private int priority;
@@ -20,6 +20,22 @@ public class Budget {
     // Check if this priority is greater than parameter
     public boolean priorityCompare(int priority) {
         return this.priority >= priority;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public float getAmount(){
+        return amount;
+    }
+
+    public float getUsage(){
+        return usage;
+    }
+
+    public float restOfBudget(){
+        return amount - usage;
     }
 
     public void thirtyPercentWarning(){

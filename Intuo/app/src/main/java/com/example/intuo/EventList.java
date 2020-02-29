@@ -1,101 +1,106 @@
-package com.example.intuo;
 public class EventList {
-    // 没有Event呢还
     private EventNode head;
+    private EventNode tail;
 
-    public EventList() {
-        this.head = null;
-
+    public EventList(){
+        head = null;
+        tail = null;
     }
-    //insert First Node
-    public void insertHeadNode(Event event) {
-        EventNode node = new EventNode(event);
-        node.next = head;
-        head = node;
-    }
-
-    //delete Head Node
-    public Event deleteHeadNode() {
-        if (head == null) {
-            System.out.println("Empty List! ");
-            return null;
-        }
-        Event event = head.event;
-        head = head.next;
-        return event;
-    }
-    // insert in anywhere
-	
-	
-    public void insert( Event event){
-        EventNode temp;
-        EventNode current;
-        EventNode previous;
-
-        temp = new EventNode(event);
-        temp.next = null;
-
-        current = head;
-        previous = null;
-
-        while (current!= null){
-            if(event.compareDate(current.event)==0){
-                if (event.getPriority()>current.event.getPriority()) {
-                    break;
-                }
-            }
-            previous = current;
-            current = current.next;
-        }
-        if (previous==null){
-            head = temp;
+    public void add(Event e){
+        EventNode newNode = new EventNode(e);
+        if(head == null){
+            head = newNode;
+            tail = newNode;
         }
         else{
-            previous.next = temp;
-        }
-        temp.next = current;
+            EventNode temp = head;
+            while(true){
+                if(newNode.data.compareDate(temp.data) == 1){
+                    if(temp == head){
+                        head.previous = newNode;
+                        newNode.next = head;
+                        head = newNode;
+                        break;
+                    }
+                    else{
+                        newNode.previous = temp.previous;
+                        temp.previous.next = newNode;
+                        temp.previous = newNode;
+                        newNode.next = temp;
+                        break;
+                    }
 
-    }
-            //delete in anywhere
-    public Event delete(int index) {
-        if (head == null) {
-            System.out.println("Empty list! ");
-            return null;
-        }
-        if (index == 0) {
-            return deleteHeadNode();//delete Head Node
-        }
-
-        EventNode current = head;
-        EventNode remove;
-        for (int j = 0; j < (index - 1) && current != null; j++) {
-            current = current.next;
-            if (current == null) {
-                System.out.println("No such node! ");
-                return null;
+                }
+                else if(newNode.data.compareDate(temp.data) == 0){
+                    if(newNode.data.priorityCompare(temp.data.getPriority())){
+                        if(temp == head){
+                            head.previous = newNode;
+                            newNode.next = head;
+                            head = newNode;
+                            break;
+                        }
+                        else{
+                            newNode.previous = temp.previous;
+                            temp.previous.next = newNode;
+                            temp.previous = newNode;
+                            newNode.next = temp;
+                            break;
+                        }
+                    }
+                }
+                if(temp == tail){
+                    tail.next = newNode;
+                    newNode.previous = tail;
+                    tail = newNode;
+                    newNode.next = null;
+                    break;
+                }
+                temp = temp.next;
             }
         }
-        remove = current.next;
-        Event event = remove.event;
-        current.next = remove.next;
-        return event;
+    }
+    public void delete(Event e){
+        EventNode temp = head;
+        if (head.data == e){
+            if(tail.data == e){
+                head = tail = null;
+            }
+            else{
+                head = head.next;
+                head.previous = null;
+            }
+        }
+        else if(tail.data == e){
+            tail = tail.previous;
+            tail.next = null;
+        }
+        else{
+            while(true){
+                if (temp.data == e){
+                    temp.previous.next = temp.next;
+                    temp.next.previous = temp.previous;
+                    break;
+                }
+                if(temp == tail){
+                    System.out.println("Data is not in the list");
+                    break;
+                }
+                else{
+                    temp = temp.next;
+                }
+            }
+        }
     }
 
-            //get size of list
-    public int getSize(){
-                return size;
-    }
-
-            //print out list
-    public void print() {
-                System.out.println("Linked List");
-                if (head == null) {
-                    System.out.println("Empty List! ");
-                }
-                EventNode current = head;
-                while (current != null) {
-                    System.out.println(current);
-                    current = current.next;
-                }
+    public void print(){
+        EventNode temp = head;
+        while(true){
+            if(temp == null){
+                break;
+            }
+            System.out.print("the event name is: '"+temp.data.getName() + "', it will start on ");
+            temp.data.getDate().print();
+            temp = temp.next;
+        }
     }
 }

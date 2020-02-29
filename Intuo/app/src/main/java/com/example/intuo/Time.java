@@ -1,5 +1,3 @@
-package com.example.intuo;
-
 public class Time {
     private int second;
     private int minute;
@@ -23,3 +21,4 @@ public class Time {
         System.out.println("Current time is: "+ hour +":"+minute+""+minute);
     }
 }
+

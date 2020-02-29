@@ -1,101 +1,66 @@
-package com.example.intuo;
 public class BudgetList {
-    // 没有Budget呢还
     private BudgetNode head;
+    private BudgetNode tail;
 
     public BudgetList() {
-        this.head = null;
-
+        head = null;
+        tail = null;
     }
-    //insert First Node
-    public void insertHeadNode(Budget budget) {
-        BudgetNode node = new BudgetNode(budget);
-        node.next = head;
-        head = node;
-    }
-
-    //delete Head Node
-    public Budget deleteHeadNode() {
-        if (head == null) {
-            System.out.println("Empty List! ");
-            return null;
-        }
-        Budget budget = head.budget;
-        head = head.next;
-        return budget;
-    }
-
-    // insert in anywhere
-    public void insert(Budget budget){
-        BudgetNode temp;
-        BudgetNode current;
-        BudgetNode previous;
-
-        temp = new BudgetNode(budget);
-        temp.next = null;
-
-        current = head;
-        previous = null;
-
-        while (current!= null){
-            if(budget.compareDate(current.budget)==0){
-                if (budget.getPriority()>current.budget.getPriority()) {
-                    break;
-                }
-            }
-            previous = current;
-            current = current.next;
-        }
-        if (previous==null){
-            head = temp;
+    public void add(Budget b){
+        BudgetNode newNode = new BudgetNode(b);
+        if(head == null){
+            tail = newNode;
+            head = newNode;
         }
         else{
-            previous.next = temp;
+            tail.next = newNode;
+            newNode.previous = tail;
+            tail = newNode;
+            newNode.next = null;
         }
-        temp.next = current;
-        
     }
-    //delete in anywhere
-    public Budget delete(int index) {
-        if (head == null) {
-            System.out.println("Empty list! ");
-            return null;
-        }
-        if (index == 0) {
-            return deleteHeadNode();//delete Head Node
-        }
 
-        BudgetNode current = head;
-        BudgetNode remove;
-        for (int j = 0; j < (index - 1) && current != null; j++) {
-            current = current.next;
-            if (current == null) {
-                System.out.println("No such node! ");
-                return null;
+    public void delete(Budget b){
+        BudgetNode temp = head;
+        if (head.data == b){
+            if(tail.data == b){
+                head = tail = null;
+            }
+            else{
+                head = head.next;
+                head.previous = null;
             }
         }
-        remove = current.next;
-        Budget budget = remove.budget;
-        current.next = remove.next;
-        return budget;
-    }
-
-
-    //get size of list
-    public int getSize(){
-        return size;
-    }
-
-    //print out list
-    public void print() {
-        System.out.println("Linked List");
-        if (head == null) {
-            System.out.println("Empty List! ");
+        else if(tail.data == b){
+            tail = tail.previous;
+            tail.next = null;
         }
-        BudgetNode current = head;
-        while (current != null) {
-            System.out.println(current);
-            current = current.next;
+        else{
+            while(true){
+                if (temp.data == b){
+                    temp.previous.next = temp.next;
+                    temp.next.previous = temp.previous;
+                    break;
+                }
+                if(temp == tail){
+                    System.out.println("Data is not in the list");
+                    break;
+                }
+                else{
+                    temp = temp.next;
+                }
+            }
+        }
+    }
+
+    public void print(){
+        BudgetNode temp = head;
+        while(true){
+            if(temp == null){
+                break;
+            }
+            System.out.println("the budget name is: '"+temp.data.getName() + "', with amount of "+temp.data.getAmount()+", and the current usage is "+temp.data.getUsage()+", the remaining budget is "+temp.data.restOfBudget()+".");
+            temp = temp.next;
         }
     }
 }

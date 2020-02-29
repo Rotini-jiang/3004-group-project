@@ -1,13 +1,12 @@
-package com.example.intuo;
 public class BudgetNode {
 
-    public Budget budget;
+    public Budget data;
     public BudgetNode next;
+    public BudgetNode previous;
 
     public BudgetNode(Budget budget) {
-        this.budget = budget;
+        this.data = budget;
+        previous = null;
+        next = null;
     }
-    public BudgetNode(){};
-
-
 }
