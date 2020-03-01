@@ -1,1 +1,1 @@
-Change to double Linked list and working on interface. The basic functions have been implemented, and now it is to make a mobile terminal demo.
+We Change the old list to double Linked list and working on interface. The basic functions have been implemented, and now it is to make a mobile terminal demo.
