@@ -1,0 +1,3 @@
+Rewrite the list classes, change the original single linked list class to double linked list, create the UI of the app of the main page.
+realize the function of new button, I did the newEvent part, the new codes are in Intuo2.zip, We rewrite the whole project, and We
+will upload the extracted one later.
