@@ -1,0 +1,2 @@
+files are under the path: /Intuo2/app/src/main/java/com/example/, please create or modify classes there
+The project has been rewrote in Intuo2, Intuo folder will not be updated since all new code goes into Intuo2
