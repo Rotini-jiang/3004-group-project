@@ -1,0 +1,2 @@
+recreate the project as Intuo2, write many activities: new, new_event, show_event_library, daily_spend, delete_budget, delete_event, home,
+record. I also make some new methods in the lists and library classes: update() and some get and set methods.
