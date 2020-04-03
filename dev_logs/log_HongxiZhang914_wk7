@@ -1,0 +1,3 @@
+link the program with database, and rewirite some methods in linked list classes, 
+so that the program uses database as major sorting way. 
+The linked list will be created only when there is requirement to read the data from databases.
