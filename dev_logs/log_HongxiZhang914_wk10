@@ -1,0 +1,7 @@
+Finally the last week of doing the project, I was trying to implement the very last function of
+our project, which is the notification, I have tried many ways to realize this, but I found most of
+the tutorials online are out of time, the methods they use are no longer supported in the newest
+version of android studio. the app will keep stopping when there is a notification pushing to the user.
+I tried several days to figure out the bugs, but I have no idea why this happens, and my team members
+cannot help me on this feature, so we decide to delete this feature or redo it in other ways, but it is not
+finally decided when I write this log.
