@@ -1,0 +1,7 @@
+Finally come up with teammates on the right way of notification implementation, 
+debugs and testing alot for our final project to release.
+
+write the D4 documentation, documentation might be modified since our team is giving a final try on more new features, 
+but the mostly done. 
+
+We had a lot of online meeting for final presentations.

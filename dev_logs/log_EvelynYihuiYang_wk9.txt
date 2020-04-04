@@ -1,0 +1,2 @@
+discuss about the graphing part in our application and we decide to implement bar chart instead.
+research to come up the implementation and fixing bugs.
