@@ -1,0 +1,3 @@
+discuss the project design, figure out what kind of project and what feature for our application.
+
+write pdfs for D1, 
