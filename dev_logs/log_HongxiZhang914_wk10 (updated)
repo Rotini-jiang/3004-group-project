@@ -1,0 +1,2 @@
+finally successfully implement the notification feature, and fixed a bug that if there is no budget in 
+the database, when the user tap chart button, the app will stop running.(now fixed)
